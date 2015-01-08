@@ -1,0 +1,17 @@
+html,body{
+    background: black;
+    height: 100%;
+}
+.mediumProfile{
+    position: absolute;
+    borrom: 0px;
+    right: 0px;
+    background: white;
+    border: none;
+    width: 400px;
+    height: 100%;
+}
+.mediumProfile iframe{
+    border: none;
+    height: 100% !important;
+}
