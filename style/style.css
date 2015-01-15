@@ -1,5 +1,4 @@
 html,body{
-    min-width: 320px;
     height: 100%;
     font-family:"Lucida Sans Unicode","Lucida Sans","Lantinghei SC","Hiragino, Sans BG","STHeiti","Microsoft YaHei", sans-seif;
     background: #000;
@@ -34,6 +33,7 @@ body h1{
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    text-align: center;
     transition: height 2s;
 }
 .page a{
@@ -51,18 +51,12 @@ body h1{
     color: #ccc;
     text-decoration: underline;
 }
-@media screen and (max-device-width: 600px) {
-    .wrap {
-        width: 400px;
-    }
-    .page a {
-        font-size: 1.2em;
-    }
-    .page .footer a{
-        font-size: 1.1em;
+@media screen and (min-device-width: 500px) {
+    body{
+        min-width: 500px;
     }
 }
-@media screen and (max-device-width: 400px) {
+@media screen and (max-device-width: 500px) {
     .wrap {
         width: 320px;
     }
@@ -105,18 +99,19 @@ body h1{
     bottom: 0;
 }
 .medium{
-    margin: 20px auto;
     width: 90%;
     opacity: 0;
     position: relative;
     display: none;
+    margin: 20px 0;
+    margin-left: -2px;
     transition: opacity 2s;
 }
 .medium.show{
     opacity: 0;
 }
 .medium.loaded.show{
-    display: block;
+    display: inline-block;
     opacity: 1;
 }
 .page.showmore{
