@@ -47,11 +47,9 @@
         var loading = setInterval(function(){
             var $iframe = $medium.find('iframe');
             if($iframe){
-                $iframe.on('load',function(){
-                });
-                    $medium.addClass('loaded');
-                    showMedium();
-                    clearInterval(loading);
+                $medium.addClass('loaded');
+                showMedium();
+                clearInterval(loading);
             }
         },500);
 
