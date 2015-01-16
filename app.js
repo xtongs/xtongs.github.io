@@ -2,7 +2,7 @@
  * 静态文件服务器
  * To change this template use File | Settings | File Templates.
  */
-var port=5000;
+var port=80;
 var http = require("http");
 var url = require("url");
 var fs = require("fs");
