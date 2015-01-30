@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="dist/style.min.css">
+</head>
+<body>
+<form action="./" method="post">
+    <input type="hidden" name="pokeDate" value=""/>
+    <input type="hidden" name="pokeDateLunar" value="0"/>
+    <input type="hidden" name="gender" value="female"/>
+    <input type="hidden" name="constellation" value=""/>
+    <div id="poke">
+        <div class="lights">
+            <div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+                <div class="light"></div>
+            </div>
+        </div>
+        <img class="egg" src="image/egg.png"/>
+        <img class="egg2" src="image/egg2.png"/>
+        <img class="stars" src="image/stars.png"/>
+        <img class="star1" src="image/star1.png"/>
+        <img class="star2" src="image/star2.png"/>
+        <img class="title" src="image/title.png"/>
+        <div class="date"><span></span>年<span></span>月<span></span>日</div>
+        <div class="gender">
+            <span>
+                <img src="image/gender-male.png"/><img src="image/gender-males.png"/>
+            </span>
+            <span class="selected">
+                <img src="image/gender-female.png"/><img src="image/gender-females.png"/>
+            </span>
+        </div>
+        <img class="shell" src="image/shell.png"/>
+        <a class="next">下一步</a>
+        <div class="keyboard">
+            <div class="keyhead">
+                <div class="checkbox">
+                    <img src="image/check.png"/><img src="image/checked.png"/>农历
+                </div>
+                <a class="button">确定</a>
+            </div>
+            <div class="keybody">
+                <div class="scrollbg">
+                    <div class="scrollrow"><div></div><div></div><div></div></div>
+                    <div class="scrollrow"><div></div><div></div><div></div></div>
+                    <div class="scrollrow"><div></div><div></div><div></div></div>
+                    <div class="scrollrow"><div></div><div></div><div></div></div>
+                </div>
+                <div class="scrollcontent">
+                    <div class="scrollcol">
+                        <ul>
+                        </ul>
+                    </div>
+                    <div class="scrollcol">
+                        <ul>
+                        </ul>
+                    </div>
+                    <div class="scrollcol">
+                        <ul>
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cache"></div>
+    <div id="picker">
+        <img class="cloud" src="image/cloud.png"/>
+        <img class="shuffle" src="image/shuffle.png"/>
+        <div class="ring">
+            <div></div>
+        </div>
+        <div class="ring">
+            <div></div>
+        </div>
+        <div class="ring">
+            <div></div>
+        </div>
+        <div class="ring">
+            <div></div>
+        </div>
+        <div class="constellations">
+            <div>
+                <div><div>
+                    <h3>白羊座</h3>
+                    <h3>白羊座</h3>
+                    <h4>3.21 - 4.19</h4>
+                </div></div>
+                <div><div>
+                    <h3>金牛座</h3>
+                    <h3>金牛座</h3>
+                    <h4>4.20 - 5.20</h4>
+                </div></div>
+                <div><div>
+                    <h3>双子座</h3>
+                    <h3>双子座</h3>
+                    <h4>5.21 - 6.21</h4>
+                </div></div>
+                <div><div>
+                    <h3>巨蟹座</h3>
+                    <h3>巨蟹座</h3>
+                    <h4>6.22 - 7.22</h4>
+                </div></div>
+                <div><div>
+                    <h3>狮子座</h3>
+                    <h3>狮子座</h3>
+                    <h4>7.23 - 8.22</h4>
+                </div></div>
+                <div><div>
+                    <h3>处女座</h3>
+                    <h3>处女座</h3>
+                    <h4>8.23 - 9.20</h4>
+                </div></div>
+                <div><div>
+                    <h3>天秤座</h3>
+                    <h3>天秤座</h3>
+                    <h4>9.23 - 10.23</h4>
+                </div></div>
+                <div><div>
+                    <h3>天蝎座</h3>
+                    <h3>天蝎座</h3>
+                    <h4>10.24 - 11.22</h4>
+                </div></div>
+                <div><div>
+                    <h3>射手座</h3>
+                    <h3>射手座</h3>
+                    <h4>11.23 - 12.21</h4>
+                </div></div>
+                <div><div>
+                    <h3>摩羯座</h3>
+                    <h3>摩羯座</h3>
+                    <h4>12.22 - 1.19</h4>
+                </div></div>
+                <div><div>
+                    <h3>水瓶座</h3>
+                    <h3>水瓶座</h3>
+                    <h4>1.20 - 2.18</h4>
+                </div></div>
+                <div><div>
+                    <h3>双鱼座</h3>
+                    <h3>双鱼座</h3>
+                    <h4>2.19 - 3.20</h4>
+                </div></div>
+            </div>
+        </div>
+        <div class="roles">
+            <div class="rolesrow">
+            </div>
+            <div class="rolesrow">
+            </div>
+        </div>
+        <a class="nnext">下一步</a>
+    </div>
+    <script src="dist/libs.min.js"></script>
+</form>
+</body>
+</html>
