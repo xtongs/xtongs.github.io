@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="dist/style.min.css">
 </head>
 <body>
-<form action="./" method="post" onsubmit="location.reload;return false;">
+<form action="./" method="post">
     <input type="hidden" name="pokeDate" value=""/>
     <input type="hidden" name="pokeDateLunar" value="0"/>
     <input type="hidden" name="gender" value="female"/>
@@ -44,7 +44,7 @@
             </span>
         </div>
         <img class="shell" src="image/shell.png"/>
-        <a class="next">下一步</a>
+        <a onclick="return false;" class="next">下一步</a>
         <div class="keyboard">
             <div class="keyhead">
                 <div class="checkbox">
