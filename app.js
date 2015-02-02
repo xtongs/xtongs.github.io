@@ -2,7 +2,6 @@
  * 静态文件服务器
  * To change this template use File | Settings | File Templates.
  */
-var port=80;
 var http = require("http");
 var url = require("url");
 var fs = require("fs");
@@ -42,6 +41,7 @@ var config = {
     Secure : null
 };
 var zlib = require("zlib");
+var debug = true;
 //创建http服务端
 var server=http.createServer(function(request,response){
     var obj= url.parse(request.url);
@@ -78,8 +78,8 @@ var server=http.createServer(function(request,response){
                         response.setHeader("Expires", expires.toUTCString());
                         response.setHeader("Cache-Control", "max-age=" + config.Expires.maxAge);
                     }
-
-                    if (request.headers[ifModifiedSince] && lastModified == request.headers[ifModifiedSince]) {
+                    // 调试时避免静态文件缓存
+                    if (debug == true && request.headers[ifModifiedSince] && lastModified == request.headers[ifModifiedSince]) {
                         //console.log("从浏览器cache里取")
                         response.writeHead(304, "Not Modified");
                         response.end();
@@ -106,5 +106,4 @@ var server=http.createServer(function(request,response){
     }
     pathHandle(realPath);
 });
-server.listen(port);
-console.log("http server run in port:"+port);
+module.exports = server;
