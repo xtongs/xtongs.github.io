@@ -32,22 +32,22 @@ html,body{
 body{
     width: 100%;
 }
-header,footer{
+div.header,div.footer{
     opacity: 0.1;
     text-shadow: 0 0 10px rgba(255,255,255,1);
 }
-header h1,footer h5{
+div.header h1,div.footer h5{
     font-size: 1em;
     padding: 0.5em;
 }
-section{
+div.section{
     width: 100%;
     margin-bottom: 1em;
 }
-section:nth-last-of-type(1){
+div.section:nth-last-of-type(1){
     margin-bottom: 0;
 }
-section a{
+div.section a{
     color: white;
     background-color: rgba(255,255,255,0.3);
     text-decoration: none;
@@ -64,51 +64,53 @@ section a{
     -webkit-animation: show 1s 1 0s backwards;
     animation: show 1s 1 0s backwards;
 }
-section a:nth-of-type(1){
-    -webkit-animation-delay: .1s;
-    animation-delay: .1s;
-}
-section a:nth-of-type(2){
-    -webkit-animation-delay: .2s;
-    animation-delay: .2s;
-}
-section a:nth-of-type(3){
-    -webkit-animation-delay: .3s;
-    animation-delay: .3s;
-}
-section a:nth-of-type(4){
-    -webkit-animation-delay: .4s;
-    animation-delay: .4s;
-}
-section a:nth-of-type(5){
-    -webkit-animation-delay: .5s;
-    animation-delay: .5s;
-}
-section a:nth-of-type(6){
-    -webkit-animation-delay: .6s;
-    animation-delay: .6s;
-}
-section a:nth-of-type(7){
-    -webkit-animation-delay: .7s;
-    animation-delay: .7s;
-}
-section a:nth-of-type(8){
-    -webkit-animation-delay: .8s;
-    animation-delay: .8s;
-}
-section a:nth-of-type(9){
-    -webkit-animation-delay: .9s;
-    animation-delay: .9s;
-}
-section a:hover{
+div.section a:hover{
+    color: black;
     color: rgba(0,0,0,0.7);
     background-color: white;
     box-shadow: 0em 0em 2em rgba(255,255,255,1);
 }
-section a i,section a img{
+div.section a i,div.section a img{
     vertical-align: middle;
 }
-section a img{    
+div.section a img{    
+    display: block;
     width: 100%;
     height: 100%;
+}
+div.section a:nth-of-type(1){
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+}
+div.section a:nth-of-type(2){
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
+}
+div.section a:nth-of-type(3){
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+div.section a:nth-of-type(4){
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+}
+div.section a:nth-of-type(5){
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+}
+div.section a:nth-of-type(6){
+    -webkit-animation-delay: .6s;
+    animation-delay: .6s;
+}
+div.section a:nth-of-type(7){
+    -webkit-animation-delay: .7s;
+    animation-delay: .7s;
+}
+div.section a:nth-of-type(8){
+    -webkit-animation-delay: .8s;
+    animation-delay: .8s;
+}
+div.section a:nth-of-type(9){
+    -webkit-animation-delay: .9s;
+    animation-delay: .9s;
 }
