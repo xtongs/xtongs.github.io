@@ -1,24 +1,109 @@
+@-webkit-keyframes show{
+    0%{
+        opacity: 0;
+        -webkit-transform: translateY(1em);
+        transform: translateY(1em);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: translateY(0em);
+        transform: translateY(0em);
+    }
+}
+@keyframes show{
+    0%{
+        opacity: 0;
+        -webkit-transform: translateY(1em);
+        transform: translateY(1em);
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform: translateY(0em);
+        transform: translateY(0em);
+    }
+}
 html,body{
-    height: 100%;
-    font-family:"Lucida Sans Unicode","Lucida Sans","Lantinghei SC","Hiragino, Sans BG","STHeiti","Microsoft YaHei", sans-seif;
+    font-family:"Courier New","Courier";
     background: #000;
+    color: #fff;
+    text-align: center;
     font-size: 14px;
+}
+body{
+    width: 100%;
+}
+header,footer{
+    opacity: 0.1;
+    text-shadow: 0 0 10px rgba(255,255,255,1);
+}
+header h1,footer h5{
+    font-size: 1em;
+    padding: 0.5em;
+}
+section{
+    width: 100%;
+    margin-bottom: 1em;
+}
+section:nth-last-of-type(1){
+    margin-bottom: 0;
 }
 section a{
     color: white;
     background-color: rgba(255,255,255,0.3);
+    text-decoration: none;
     display: inline-block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 10em;
-    height: 10em;
+    width: 6em;
+    height: 6em;
+    margin: 0.6em;
     text-align: center;
-    line-height: 10em;
-    border-radius: 5em;
+    line-height: 6em;
+    border-radius: 3em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-animation: show 1s 1 0s backwards;
+    animation: show 1s 1 0s backwards;
+}
+section a:nth-of-type(1){
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+}
+section a:nth-of-type(2){
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
+}
+section a:nth-of-type(3){
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+section a:nth-of-type(4){
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+}
+section a:nth-of-type(5){
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+}
+section a:nth-of-type(6){
+    -webkit-animation-delay: .6s;
+    animation-delay: .6s;
+}
+section a:nth-of-type(7){
+    -webkit-animation-delay: .7s;
+    animation-delay: .7s;
+}
+section a:nth-of-type(8){
+    -webkit-animation-delay: .8s;
+    animation-delay: .8s;
+}
+section a:nth-of-type(9){
+    -webkit-animation-delay: .9s;
+    animation-delay: .9s;
+}
+section a:hover{
+    color: rgba(0,0,0,0.7);
+    background-color: white;
+    box-shadow: 0em 0em 2em rgba(255,255,255,1);
 }
 section a i,section a img{
     vertical-align: middle;
