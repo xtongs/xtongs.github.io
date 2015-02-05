@@ -22,14 +22,12 @@
         transform: translateY(0em);
     }
 }
-html,body{
+body{
     font-family:"Courier New","Courier";
     background: #000;
     color: #fff;
     text-align: center;
     font-size: 14px;
-}
-body{
     width: 100%;
 }
 div.header,div.footer{

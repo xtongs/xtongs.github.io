@@ -57,4 +57,24 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   // 默认任务
   grunt.registerTask('default', ['uglify','cssmin','imagemin','watch']);
+  grunt.event.on('watch', function(action, filepath, target) {
+    var time = new Date().getTime();
+    var index = 'index.html';
+    var page = grunt.file.read(index, {encoding: 'UTF-8'});
+    var file = '';
+    var content = '';
+    switch(target){
+      case 'scripts':
+      file = 'assets/script.min.js';
+      break;
+      case 'styles':
+      file = 'assets/style.min.css';
+      break;
+      default:
+      file = filepath;
+    }
+    file = file.split('/').pop();
+    content = page.replace(eval('/'+file+'/ig'),file+'?t='+time); 
+    grunt.file.write(index, content, {encoding: 'UTF-8'});
+  });
 }
