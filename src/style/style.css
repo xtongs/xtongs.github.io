@@ -1,119 +1,29 @@
 html,body{
-        height: 100%;
-        font-family:"Lucida Sans Unicode","Lucida Sans","Lantinghei SC","Hiragino, Sans BG","STHeiti","Microsoft YaHei", sans-seif;
-        background: #000;
-        color: #333;
-        font-size: 14px;
-    }
-    body h1{
-        position: absolute;
-        top: 50%;
-        display: inline-block;
-        height: 200px;
-        line-height: 200px;
-        margin-top: -100px;
-        width: 100%;
-        min-width: 320px;
-        text-align: center;
-        color: #666;
-        font-weight: lighter;
-        font-size: 2em;
-        font-family: "Courier";
-        cursor: default;
-    }
-    .wrap{
-        width: 500px;
-        margin: 0 auto;
-        text-align: center;
-    }
-    .page{
-        font-size: 14px;
-        min-height: 100%;
-        padding-bottom: 50px;
-        box-sizing: border-box;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-        transition: height 2s;
-    }
-    .page a{
-        font-family: "Courier";
-        font-weight: lighter;
-        font-size: 1.4em;
-        color: #666;
-        margin: 0 20px;
-        text-decoration: none;
-    }
-    .page .footer a{
-        font-size: 1.2em;
-    }
-    .page a:hover{
-        color: #ccc;
-        text-decoration: underline;
-    }
-    @media screen and (min-device-width: 500px) {
-        body{
-            min-width: 500px;
-        }
-    }
-    @media screen and (max-device-width: 500px) {
-        .wrap {
-            width: 320px;
-        }
-        .page a {
-            font-size: 1.1em;
-        }
-        .page .footer a{
-            font-size: 1.1em;
-        }
-    }
-    .canvas{
-        background: #000;
-        position: absolute;
-        top: 70px;
-        bottom: 50px;
-        width: 100%;
-        opacity: 0.8;
-        transition: opacity 3s;
-        transition: background 2s;
-    }
-    .canvas.show{
-        background: #f8f8f8;
-        opacity: 1;
-    }
-    .header,.footer{
-        background: #000;
-        opacity: 0;
-        height: 70px;
-        line-height: 70px;
-        width: 100%;
-        transition: opacity 2s;
-    }
-    .header.show,.footer.show{
-        opacity: 1;
-    }
-    .footer{
-        position: absolute;
-        height: 50px;
-        line-height: 50px;
-        bottom: 0;
-    }
-    .medium{
-        width: 90%;
-        opacity: 0;
-        position: relative;
-        display: none;
-        margin: 20px 0;
-        margin-left: -4px;
-        transition: opacity 2s;
-    }
-    .medium.show{
-        opacity: 0;
-    }
-    .medium.loaded.show{
-        display: inline-block;
-        opacity: 1;
-    }
-    .page.showmore{
-        height: auto;
-    }
+    height: 100%;
+    font-family:"Lucida Sans Unicode","Lucida Sans","Lantinghei SC","Hiragino, Sans BG","STHeiti","Microsoft YaHei", sans-seif;
+    background: #000;
+    font-size: 14px;
+}
+section a{
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 10em;
+    height: 10em;
+    text-align: center;
+    line-height: 10em;
+    border-radius: 5em;
+}
+section a i,section a img{
+    vertical-align: middle;
+}
+section a img{    
+    width: 100%;
+    height: 100%;
+}

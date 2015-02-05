@@ -8,7 +8,7 @@ module.exports = function (grunt) {
       },
       "my_target": {
         "files": {
-          'assets/script.min.js': ['src/script/lib/jquery.min.js', 'src/script/index.js']
+          'assets/script.min.js': ['src/script/lib/*.js', 'src/script/*.js']
         }
       }
     },
@@ -16,8 +16,7 @@ module.exports = function (grunt) {
       compress: {
         files: {
           'assets/style.min.css': [
-            "src/style/base.css",
-            "src/style/style.css"
+            "src/style/*.css"
           ]
         }
       }
