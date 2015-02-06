@@ -70,7 +70,7 @@ module.exports = function(grunt) {
                 filepath = 'style.min.css';
                 break;
             default:
-                filepath = filepath.split('/').pop();
+                filepath = filepath.split('\\').pop();
         }
         grunt.file.write(
             'index.html',
