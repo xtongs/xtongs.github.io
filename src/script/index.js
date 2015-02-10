@@ -7,7 +7,7 @@ $(function() {
 				$(d).text($(d).parent().attr('title')[0]);
 			});
 		}
-	},2000);
+	},0);
 	touch.on($('.logo'), 'touchstart', function(e) {
 		e.stopPropagation();
 		e.preventDefault();
