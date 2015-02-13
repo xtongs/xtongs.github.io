@@ -82,6 +82,7 @@ div.section a{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
     -webkit-animation: show 1s 1 0s backwards;
     animation: show 1s 1 0s backwards;
 }
