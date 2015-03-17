@@ -26,7 +26,12 @@ gulp.task('script', function() {
     gulp.src('src/script/**/*.js')
         .pipe(plumber())
         .pipe(concat('script.min.js'))
-        .pipe(uglify())
+        .pipe(uglify({
+            output : {
+                'inline_script' : true,
+                'max_line_len': 1000000
+            }
+        }))
         .pipe(gulp.dest('src/dist'));
 });
 
@@ -42,7 +47,9 @@ gulp.task('image', function() {
 gulp.task('inline', function () {
     setTimeout(function(){
         gulp.src('src/*.html')
-            .pipe(inlinesource())
+            .pipe(inlinesource({
+                compress: false
+            }))
             .pipe(gulp.dest('.'))
             .pipe(reload({stream:true}));
     },100);
@@ -52,8 +59,7 @@ gulp.task('inline', function () {
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
-            baseDir: './',
-            directory: true
+            baseDir: './'
         },
         ui: false,
         notify: false,
