@@ -1,0 +1,28 @@
+{
+  "name": "",
+  "version": "0.0.0",
+  "description": "VIP",
+  "license": "MIT",
+  "contributors": [
+    "Name <name@vipshop.com>"
+  ],
+  "devDependencies": {
+    "browser-sync": "^2.3.0",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-inline-source": "^1.2.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0"
+  },
+  "scripts": {
+    "start": "forever -a --no-colors --minUptime 3000 --spinSleepTime 3000 start ./bin/www",
+    "stop": "forever --no-colors stop ./bin/www",
+    "test": "gulp"
+  },
+  "dependencies": {
+    "forever": "latest"
+  }
+}
