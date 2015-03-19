@@ -52,7 +52,7 @@ gulp.task('inline', function () {
             }))
             .pipe(gulp.dest('./'))
             .pipe(reload({stream:true}));
-    },100);
+    },1000);
 });
 
 // 自动刷新浏览器
