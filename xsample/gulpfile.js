@@ -50,7 +50,7 @@ gulp.task('inline', function () {
             .pipe(inlinesource({
                 compress: false
             }))
-            .pipe(gulp.dest('.'))
+            .pipe(gulp.dest('./'))
             .pipe(reload({stream:true}));
     },100);
 });
