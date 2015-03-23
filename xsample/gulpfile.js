@@ -46,7 +46,7 @@ gulp.task('image', function() {
 // 插入行内代码
 gulp.task('inline', function () {
     setTimeout(function(){
-        gulp.src('src/*.html')
+        gulp.src('src/**/*.html')
             .pipe(inlinesource({
                 compress: false
             }))
