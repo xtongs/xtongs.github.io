@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8" >
+		<title>CSS3 transform jagged problem solving</title>
+		<style type="text/css">
+		*{ margin:0; padding:0;}
+		body{ font:12px/20px Tahoma; color:white; text-align:center; background:#333; text-shadow:0 1px 0 black;}
+		h1{margin:20px;}
+		.wrapper{ width:660px; height:470px; position:relative; top:40px; left:50%; margin-left:-330px;}
+		.box1,.box2,.box3,.box4,.box5,.box6{ padding:5px 0; position:absolute; -moz-transform: rotate(5deg); }
+		.box1{ top:0; left:0; -webkit-transform:rotate(5deg);}
+		.box2{ top:0; left:350px; -webkit-transform: rotate(5deg);  overflow:hidden;}
+		.box3{ top:260px; left:0; -webkit-transform: rotate(5deg) translateZ(0);}
+		.box4{ top:260px; left:350px; -webkit-transform: rotate(5deg) translateZ(0);  overflow:hidden;}
+		.box5{ top:520px; left:0px; -webkit-transform: rotate(5deg); box-shadow: 1px 1px 1px transparent;}
+		.box6{ top:520px; left:350px; -webkit-transform: rotate(5deg) translateZ(0); box-shadow: 1px 1px 1px transparent;}
+		</style>
+	</head>
+	<body>
+		<h1>CSS3 transform jagged problem solving</h1>
+		<div class="wrapper">
+			<div class="box1">
+				<img src="./img.jpg" width="320" height="200">
+				<p>no style</p>
+			</div>
+			<div class="box2">
+				<img src="./img.jpg" width="320" height="200">
+				<p>-webkit-transform: rotate(5deg);  overflow:hidden;</p>
+			</div>
+			<div class="box3">
+				<img src="./img.jpg" width="320" height="200">
+				<p>-webkit-transform: rotate(5deg) translateZ(0);</p>
+			</div>
+			<div class="box4">
+				<img src="./img.jpg" width="320" height="200">
+				<p>-webkit-transform: rotate(5deg) translateZ(0);  overflow:hidden;</p>
+			</div>
+			<div class="box5">
+				<img src="./img.jpg" width="320" height="200">
+				<p>-webkit-transform: rotate(5deg); box-shadow</p>
+			</div>
+			<div class="box6">
+				<img src="./img.jpg" width="320" height="200">
+				<p>-webkit-transform: rotate(5deg) translateZ(0);  box-shaodw</p>
+			</div>
+		</div>
+	</body>
+</html>
