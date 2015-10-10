@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "name": "Name",
+      "type": "Type",
+      "area": "Area",
+      "metro": "Metro",
+      "builder": "Builder",
+      "location": "Location",
+      "around": "Around",
+      "school": "School",
+      "other": "Other",
+      "open": "Open Time",
+      "release": "Release Time",
+      "layout": "Layout",
+      "square": "Square",
+      "price": "Price",
+      "total": "Total"
+    }
+  ]
+}
