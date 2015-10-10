@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
-    <title>看房神器</title>
+    <title>Estate Info Table</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <style>
-        
+        .dataTables_length,.dataTables_filter{display: none;}
     </style>
-    <script src="../src/script/lib/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/fixedHeader.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/responsive.dataTables.min.css" />
+    <script src="lib/jquery-2.1.4.min.js"></script>
+    <script src="lib/jquery.dataTables.min.js"></script>
+    <script src="lib/dataTables.fixedHeader.min.js"></script>
+    <script src="lib/dataTables.responsive.min.js"></script>
 </head>
+
 <body>
-	<!-- <img src="./dist/pic.png"/> -->
+    <table class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>名称</th>
+                <th>类型</th>
+                <th>区域</th>
+                <th>地铁</th>
+                <th>地址</th>
+                <th>周边</th>
+                <th>学区</th>
+                <th>其他</th>
+                <th>开盘</th>
+                <th>入住</th>
+                <th>户型</th>
+                <th>面积</th>
+                <th>单价</th>
+                <th>总价</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Area</td>
+                <td>Metro</td>
+                <td>Location</td>
+                <td>Around</td>
+                <td>School</td>
+                <td>Other</td>
+                <td>Open Time</td>
+                <td>Release Time</td>
+                <td>Layout</td>
+                <td>Square</td>
+                <td>Price</td>
+                <td>Total</td>
+            </tr>
+        </tbody>
+    </table>
     <script>
-        
+        $(function(){
+            $("table").DataTable({
+                "fixedHeader": false,
+                "info": false,
+                "scrollY": '70vh',
+                "scrollCollapse": true,
+                "paging": false,
+            });
+        });
     </script>
 </body>
+
 </html>
