@@ -1,0 +1,445 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset='utf8'>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <title>
+    Playground
+  </title>
+  <style>
+    html,
+    body {
+      min-width: 300px;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    div.scene {
+      position: relative;
+      width: 95%;
+      height: 300px;
+      margin: auto;
+      color: white;
+      overflow: hidden;
+      text-transform: uppercase;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    div.mon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      transform: rotate(-30deg);
+    }
+
+    svg {
+      transform: translate3d(0, 0, 0);
+    }
+
+    svg.bg {
+      width: 100%;
+      height: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    svg.text {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      font-family: sans-serif;
+      font-size: 50px;
+      font-weight: bold;
+      overflow: visible;
+      z-index: 2;
+    }
+
+    svg.po,
+    svg.ke {
+      width: 80px;
+      height: 40px;
+      position: absolute;
+      left: 50%;
+      top: -40px;
+      margin-left: -40px;
+      overflow: visible;
+      z-index: 1;
+    }
+
+    svg.ke {
+      top: 0px;
+      z-index: 0;
+    }
+
+    a {
+      margin: auto;
+      text-decoration: none;
+      align-self: flex-end;
+      font-size: 13px;
+      color: #eee;
+    }
+  </style>
+  <script src="./snap.svg-min.js"></script>
+  <script src="./anime.min.js"></script>
+  <script src="./vconsole.min.js"></script>
+</head>
+
+<body>
+  <div class="scene">
+    <svg class="bg"></svg>
+    <svg class="text">
+      <defs>
+        <filter id="blur">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+        </filter>
+      </defs>
+    </svg>
+    <div class="mon">
+      <svg class="po"></svg>
+      <svg class="ke"></svg>
+    </div>
+  </div>
+  <a href="https://dribbble.com/shots/2832939-Pokemon">Pokemon by Gal Shir</a>
+  <script>
+    window.onload = function() {
+      /* svg */
+      var bg = Snap('svg.bg')
+      var po = Snap('svg.po')
+      var ke = Snap('svg.ke')
+      var lw = 5
+      var ls = lw * 1.6
+      var w = bg.node.clientWidth
+      var h = bg.node.clientHeight
+      var r = po.node.clientWidth / 2
+      var s = r - ls
+      var cb = '#333333'
+      var cw = '#ffffff'
+      var cr = '#FF001D'
+      var cp = '#44306A'
+      var cy = '#F2BD35'
+      var str = 'pokemon'
+      var ground = bg.paper.rect(0, h - lw, w, lw, lw / 2).attr('fill', cb)
+      var text = Snap('svg.text')
+      var txt = text.paper.text(w / 2, 50, str).attr({
+        'fill': cp,
+        'text-anchor': 'middle'
+      })
+      var pomon = po.paper.g(
+        po.paper.path('M0 ' + r + 'A' + r + ' ' + r + ' 0 0 1 ' + r * 2 + ' ' + r + 'Z').attr({
+          'fill': cr,
+          'stroke': cb,
+          'strokeWidth': lw
+        }),
+        po.paper.circle(r, r, r / 4).attr({
+          'fill': cw,
+          'stroke': cb,
+          'strokeWidth': lw
+        }),
+        po.paper.circle(r, r, s).attr({
+          'fill': 'transparent',
+          'stroke': cw,
+          'strokeWidth': lw,
+          'strokeLinecap': 'round',
+          'strokeDashoffset': '-190%',
+          'strokeDasharray': '45% 1000'
+        }),
+        po.paper.circle(r, r, s).attr({
+          'fill': 'transparent',
+          'stroke': cw,
+          'strokeWidth': lw,
+          'strokeLinecap': 'round',
+          'strokeDashoffset': '-172%',
+          'strokeDasharray': '5% 1000'
+        })
+      )
+      var kemon = ke.paper.g(
+        ke.paper.path('M0 0A' + r + ' ' + r + ' 0 0 0 ' + r * 2 + ' 0Z').attr({
+          'fill': cw,
+          'stroke': cb,
+          'strokeWidth': lw
+        }),
+        ke.paper.path('M' + (r - r / 4) + ' 0A' + r / 4 + ' ' + r / 4 + ' 0 0 0 ' + (r + r / 4) + ' 0Z').attr({
+          'fill': cb,
+          'stroke': cb,
+          'strokeWidth': lw
+        })
+      )
+
+      /* animation */
+      setTimeout(function(){
+
+        var t = 500
+        var a = anime({
+          targets: ['.mon', '.po', '.ke'],
+          translateY: function(el, index) {
+            return index == 0 ? h - 80 : 0
+          },
+          rotate: function(el, index) {
+            return index == 0 ? [-30, 0] : 0
+          },
+          duration: t * 0.8,
+          easing: 'easeInCubic',
+          autoplay: true,
+          complete: function() {
+            anime({
+              targets: ['.mon', '.text'],
+              translateY: function(el, index) {
+                return index ? 8 : h - 50
+              },
+              scaleY: function(el, index) {
+                return index ? 0.7 : 0.6
+              },
+              duration: t * 0.2,
+              easing: 'easeOutCubic',
+              complete: function() {
+                anime({
+                  targets: ['.mon', '.text'],
+                  translateY: function(el, index) {
+                    return index ? 0 : h - 150
+                  },
+                  scaleY: function(el, index) {
+                    return index ? 1 : 1
+                  },
+                  duration: t * 0.2,
+                  easing: 'easeInOutCubic',
+                  complete: function() {
+                    anime({
+                      targets: ['.po', '.ke'],
+                      translateY: function(el, index) {
+                        return index ? 15 : -15
+                      },
+                      duration: t * 0.5,
+                      easing: 'easeOutBack',
+                      complete: function() {
+                        anime({
+                          targets: 'text',
+                          fill: cy,
+                          duration: t * 0.8,
+                          delay: -t * 0.4,
+                          easing: 'easeInCirc',
+                          complete: function() {
+                            anime({
+                              targets: ['text'],
+                              filter: 'url(#blur)',
+                              duration: t * 0.2,
+                              easing: 'easeInOutCirc',
+                            })
+                            anime({
+                              targets: ['path', 'circle'],
+                              stroke: cy,
+                              duration: t * 0.2,
+                              easing: 'easeInOutCirc',
+                            })
+                            anime({
+                              targets: '.po path',
+                              fill: cy,
+                              duration: t * 0.2,
+                              easing: 'easeInOutCirc',
+                            })
+                            anime({
+                              targets: '.ke path:nth-of-type(2)',
+                              fill: cy,
+                              duration: t * 0.2,
+                              easing: 'easeInOutCirc',
+                            })
+                            anime({
+                              targets: ['text', '.text'],
+                              scaleY: function(el, index) {
+                                return index == 1 ? 4 : 1
+                              },
+                              duration: t * 0.2,
+                              easing: 'easeInOutCirc',
+                              complete: function() {
+                                anime({
+                                  targets: ['.text'],
+                                  scaleX: 0.5,
+                                  scaleY: 2,
+                                  opacity: 0.6,
+                                  translateY: -65,
+                                  duration: t * 0.2,
+                                  easing: 'easeInOutCirc',
+                                  complete: function() {
+                                    text.node.style.display = 'none';
+                                    anime({
+                                      targets: '.po path',
+                                      fill: cr,
+                                      stroke: cb,
+                                      duration: t * 0.5,
+                                      easing: 'easeInOutCirc',
+                                    })
+                                    anime({
+                                      targets: '.po circle:nth-of-type(1)',
+                                      stroke: cb,
+                                      duration: t * 0.5,
+                                      easing: 'easeInOutCirc',
+                                    })
+                                    anime({
+                                      targets: '.po circle:nth-of-type(2)',
+                                      stroke: cw,
+                                      duration: t * 0.5,
+                                      easing: 'easeInOutCirc',
+                                    })
+                                    anime({
+                                      targets: '.po circle:nth-of-type(3)',
+                                      stroke: cw,
+                                      duration: t * 0.5,
+                                      easing: 'easeInOutCirc',
+                                    })
+                                    anime({
+                                      targets: '.ke path:nth-of-type(1)',
+                                      stroke: cb,
+                                      duration: t * 0.5,
+                                      easing: 'easeInOutCirc',
+                                    })
+                                    anime({
+                                      targets: '.ke path:nth-of-type(2)',
+                                      stroke: cb,
+                                      fill: cb,
+                                      duration: t * 0.5,
+                                      easing: 'easeInOutCirc',
+                                    })
+                                    anime({
+                                      targets: ['.po', '.ke'],
+                                      translateY: 0,
+                                      duration: t * 0.3,
+                                      delay: t * 0.2,
+                                      easing: 'easeInOutCirc',
+                                    })
+                                    anime({
+                                      targets: ['.mon'],
+                                      translateY: h - 150,
+                                      scale: 1.2,
+                                      duration: t * 0.2,
+                                      delay: - t * 0.5,
+                                      easing: 'easeInOutBack',
+                                      complete: function(){
+                                        anime({
+                                          targets: ['.po circle:nth-of-type(1)'],
+                                          fill: cy,
+                                          duration: t * 0.2,
+                                          easing: 'linear',
+                                        })
+                                        anime({
+                                          targets: ['.mon'],
+                                          translateY: h - 150,
+                                          scale: 1,
+                                          duration: t * 0.2,
+                                          easing: 'easeInOutBack',
+                                          complete: function(){
+                                            anime({
+                                              targets: ['.po circle:nth-of-type(1)'],
+                                              fill: cw,
+                                              duration: t * 0.2,
+                                              easing: 'linear',
+                                            })
+                                            anime({
+                                              targets: ['.mon'],
+                                              translateY: h - 45,
+                                              scale: 1,
+                                              delay: t * 0.2,
+                                              duration: t * 0.8,
+                                              easing: 'easeInQuint',
+                                              complete: function(){
+                                                anime({
+                                                  targets: ['.mon'],
+                                                  rotate: 5,
+                                                  translateX: 30,
+                                                  translateY: h - 47,
+                                                  duration: t * 0.1,
+                                                  easing: 'linear',
+                                                  complete: function(){
+                                                    anime({
+                                                      targets: ['.mon'],
+                                                      rotate: 0,
+                                                      translateX: 0,
+                                                      translateY: h - 45,
+                                                      duration: t * 0.12,
+                                                      easing: 'linear',
+                                                      complete: function(){
+                                                        anime({
+                                                          targets: ['.mon'],
+                                                          rotate: -5,
+                                                          translateX: -30,
+                                                          translateY: h - 47,
+                                                          duration: t * 0.14,
+                                                          easing: 'linear',
+                                                          complete: function(){
+                                                            anime({
+                                                              targets: ['.mon'],
+                                                              rotate: 0,
+                                                              translateX: 0,
+                                                              translateY: h - 45,
+                                                              duration: t * 0.16,
+                                                              easing: 'linear',
+                                                            })
+                                                          }
+                                                        })
+                                                      }
+                                                    })
+                                                  }
+                                                })
+                                              }
+                                            })
+                                          }
+                                        })
+                                      }
+                                    })
+                                  }
+                                })
+                              }
+                            })
+                          }
+                        })
+                      }
+                    })
+                  }
+                })
+              }
+            })
+          }
+        })
+
+        bg.click(function() {
+          // location.reload()
+          anime({
+            targets: ['.mon'],
+            translateY: 0,
+            rotate: -30,
+            delay: -1,
+            duration: 1,
+          })
+          anime({
+            targets: ['.text'],
+            scale: 1,
+            translateY: 0,
+            opacity: 1,
+            delay: -1,
+            duration: 1,
+          })
+          txt.attr({
+            filter: 'url()',
+            fill: cp,
+            style: '',
+            'text-anchor': 'middle'
+          })
+          text.node.style.display = 'initial'
+          a.play()
+        })
+      }, 200)
+
+    }
+  </script>
+</body>
+
+</html>
