@@ -1,46 +1,289 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no">
-    <title>Firenze Borderland</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/style.min.css?t=1423721243895">
-    <link rel="apple-touch-icon" href="/assets/pic.jpg"/>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no">
+  <title>Firenze Borderland</title>
+  <style>
+    @font-face {
+      font-family: 'FontAwesome';
+      font-weight: 400;
+      font-style: normal;
+      src: url(./fonts/fontawesome.eot);
+      src: url(./fonts/fontawesome.eot?#iefix) format('embedded-opentype'), url(./fonts/fontawesome.woff2) format('woff2'), url(./fonts/fontawesome.woff) format('woff'), url(./fonts/fontawesome.ttf) format('truetype')
+    }
+
+    .fa {
+      display: inline-block;
+      font: 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .fa-3x {
+      font-size: 3em
+    }
+
+    .fa-weibo:before {
+      content: "\f18a"
+    }
+
+    .fa-medium:before {
+      content: "\f23a"
+    }
+
+    .fa-book:before {
+      content: "\f02d"
+    }
+
+    .fa-github:before {
+      content: "\f09b"
+    }
+
+    .fa-envelope-o:before {
+      content: "\f003"
+    }
+
+    @-webkit-keyframes show {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(1em);
+        transform: translateY(1em);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0em);
+        transform: translateY(0em);
+      }
+    }
+
+    @keyframes show {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(1em);
+        transform: translateY(1em);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0em);
+        transform: translateY(0em);
+      }
+    }
+
+    body {
+      font-family: "Courier New", "Courier";
+      background: #000;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%
+    }
+
+    body .about {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      color: #fff;
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-transform: uppercase;
+    }
+
+    body .about,
+    body .content {
+      transition: all 0.5s;
+    }
+
+    p {
+      margin: 0.3em 0;
+    }
+
+    input {
+      position: absolute;
+      left: -9999px;
+    }
+
+    input~ .about label {
+      display: none;
+    }
+
+    input:checked~ .about {
+      z-index: 100;
+      opacity: 1;
+    }
+
+    input:checked~ .about label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    input:checked~ .content {
+      -webkit-filter: blur(10px);
+      -moz-filter: blur(10px);
+      -ms-filter: blur(10px);
+      filter: blur(10px);
+      filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+    }
+
+    label {
+      width: 100%;
+      height: 100%;
+    }
+
+    div.header,
+    div.footer {
+      opacity: 0.1;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+    }
+
+    div.header h1,
+    div.footer h5 {
+      font-size: 1em;
+      padding: 1em;
+      margin: 0;
+    }
+
+    div.section {
+      width: 100%;
+      margin-bottom: 0.5em;
+    }
+
+    div.section a {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      width: 6em;
+      height: 6em;
+      line-height: 6em;
+      border-radius: 3em;
+      margin: 0.6em;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      transform: translate3d(0, 0, 0);
+      -webkit-animation: show 1s 1 0s backwards;
+      animation: show 1s 1 0s backwards;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    div.section a img {
+      border-radius: 3em;
+      width: 6em;
+      height: 6em;
+    }
+
+    div.section a:hover {
+      color: black;
+      color: rgba(0, 0, 0, 0.7);
+      background-color: white;
+      box-shadow: 0em 0em 2em rgba(255, 255, 255, 1);
+    }
+
+    div.section a i {
+      margin-top: 0.5em;
+    }
+
+    div.section a:nth-of-type(1) {
+      -webkit-animation-delay: .1s;
+      animation-delay: .1s;
+    }
+
+    div.section a:nth-of-type(2) {
+      -webkit-animation-delay: .2s;
+      animation-delay: .2s;
+    }
+
+    div.section a:nth-of-type(3) {
+      -webkit-animation-delay: .3s;
+      animation-delay: .3s;
+    }
+
+    div.section a:nth-of-type(4) {
+      -webkit-animation-delay: .4s;
+      animation-delay: .4s;
+    }
+
+    div.section a:nth-of-type(5) {
+      -webkit-animation-delay: .5s;
+      animation-delay: .5s;
+    }
+
+    div.section a:nth-of-type(6) {
+      -webkit-animation-delay: .6s;
+      animation-delay: .6s;
+    }
+
+    div.section a:nth-of-type(7) {
+      -webkit-animation-delay: .7s;
+      animation-delay: .7s;
+    }
+
+    div.section a:nth-of-type(8) {
+      -webkit-animation-delay: .8s;
+      animation-delay: .8s;
+    }
+
+    div.section a:nth-of-type(9) {
+      -webkit-animation-delay: .9s;
+      animation-delay: .9s;
+    }
+  </style>
+  <link rel="apple-touch-icon" href="./pic.jpg" />
 </head>
+
 <body>
-    <div class="about">
-        <h2>About Me</h2>
-        <h2>关于我</h2>
-        <p>web developer, novice ux designer</p>
-        <p>前端开发工程师，曾居武汉、北京，现居上海</p>
-        <p>曾就职于百度，现就职于唯品会，做移动开发</p>
-        <p>持续关注前端开发，视觉和产品交互设计</p>
-        <p>细节控，强迫症</p>
+  <input id="toggle" type="checkbox">
+  <div class="about">
+    <label for="toggle">
+      <h2>About Me</h2>
+      <p>web developer</p>
+      <p>novice ux designer</p>
+      <p>lived in wuhan, beijing</p>
+      <p>living in shanghai</p>
+    </label>
+  </div>
+  <div class="content">
+    <div class="header">
+      <h1>Frienze Borderland</h1>
     </div>
-    <div class="content">
-        <div class="header">
-            <h1>Frienze Borderland</h1>
-        </div>
-        <div class="section">
-            <a class="logo"><img src="/assets/pic.jpg"/></a>
-            <a href="https://medium.com/@xiaotong.shen" title="Medium"><i class="fa fa-medium fa-3x"></i></a>
-            <a href="http://book.douban.com/people/ruvidocollie/collect" title="Book"><i class="fa fa-book fa-3x"></i></a>
-            <a href="http://weibo.com/ruvidocollie" title="Weibo"><i class="fa fa-weibo fa-3x"></i></a>
-            <a href="https://github.com/xtongs" title="Github"><i class="fa fa-github fa-3x"></i></a>
-            <a href="mailto:xiaotong.shen@hotmail.com" title="Mail"><i class="fa fa-envelope-o fa-3x"></i></a>
-        </div>
-        <div class="section">
-            <a href="/workspace/poke/" title="我的破壳日"><img src="/workspace/poke/cover.jpg"/></a>
-            <a href="/workspace/jagged/" title="CSS3变换iOS锯齿解决"><img src="/workspace/jagged/cover.jpg"/></a>
-            <a href="/workspace/wmtravel/?share" title="唯美旅行"><img src="/workspace/wmtravel/cover.jpg"/></a>
-            <a href="/workspace/horoscope/" title="星座运势"><img src="/workspace/horoscope/cover.jpg"/></a>
-            <a href="/workspace/pokemon/" title="Pokemon"><img src="/workspace/pokemon/cover.jpg"/></a>
-        </div>
-        <div class="footer">
-            <h5>@ruvidoc</h5>
-        </div>
+    <div class="section">
+      <a class="logo">
+        <label for="toggle"><img src="./pic.jpg" /></label>
+      </a>
+      <a href="https://medium.com/@xiaotong.shen" title="Medium"><i class="fa fa-medium fa-3x"></i></a>
+      <a href="http://book.douban.com/people/ruvidocollie/collect" title="Book"><i class="fa fa-book fa-3x"></i></a>
+      <a href="http://weibo.com/ruvidocollie" title="Weibo"><i class="fa fa-weibo fa-3x"></i></a>
+      <a href="https://github.com/xtongs" title="Github"><i class="fa fa-github fa-3x"></i></a>
+      <a href="mailto:xiaotong.shen@hotmail.com" title="Mail"><i class="fa fa-envelope-o fa-3x"></i></a>
     </div>
-    <script type="text/javascript" charset="utf-8" src="/assets/script.min.js?t=1423721259903"></script>
+    <div class="section">
+      <a href="./workspace/poke/" title="我的破壳日"><img src="./workspace/poke/cover.jpg" /></a>
+      <a href="./workspace/jagged/" title="CSS3变换iOS锯齿解决"><img src="./workspace/jagged/cover.jpg" /></a>
+      <a href="./workspace/wmtravel/?share" title="唯美旅行"><img src="./workspace/wmtravel/cover.jpg" /></a>
+      <a href="./workspace/horoscope/" title="星座运势"><img src="./workspace/horoscope/cover.jpg" /></a>
+      <a href="./workspace/pokemon/" title="Pokemon"><img src="./workspace/pokemon/cover.jpg" /></a>
+    </div>
+    <div class="footer">
+      <h5>@ruvidoc</h5>
+    </div>
+  </div>
 </body>
+
 </html>
