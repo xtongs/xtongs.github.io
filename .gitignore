@@ -1,4 +1,9 @@
-/err.log
-/npm-debug.log
-/out.log
-/node_modules
+*.log
+.cache
+.DS_Store
+.idea
+build
+dist
+node_modules
+.gitkeep
+converage
