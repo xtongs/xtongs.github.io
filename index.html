@@ -116,21 +116,22 @@
     div.section {
       width: 100%;
       margin-bottom: 0.5em;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     div.section a {
       color: white;
       background-color: rgba(255, 255, 255, 0.3);
       text-decoration: none;
-      display: inline-block;
-      position: relative;
+      display: inline-flex;
       width: 6em;
       height: 6em;
+      justify-content: center;
+      align-items: center;
       border-radius: 50%;
       margin: 0.6em;
-      text-align: center;
-      vertical-align: middle;
-      overflow: hidden;
       cursor: pointer;
       transform: translate3d(0, 0, 0);
       -webkit-animation: show 1s 1 0s backwards;
@@ -157,7 +158,6 @@
       font-size: 3em;
       width: 1em;
       height: 1em;
-      margin-top: 0.5em;
       stroke-width: 0;
       stroke: currentColor;
       fill: currentColor;
@@ -246,7 +246,6 @@
       <h2>About Me</h2>
       <p>web developer</p>
       <p>novice ux designer</p>
-      <p>lived in wuhan, beijing</p>
       <p>lives in shanghai</p>
     </label>
   </div>
@@ -258,20 +257,17 @@
       <a class="logo">
         <label for="toggle"><img src="./pic.jpg" /></label>
       </a>
+      <a href="mailto:xiaotong.shen@hotmail.com" title="Mail">
+        <svg class="icon icon-envelope-o"><use xlink:href="#icon-envelope-o"></use></svg>
+      </a>
+      <a href="https://github.com/xtongs" title="Github">
+        <svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg>
+      </a>
       <a href="https://medium.com/@xiaotong.shen" title="Medium">
         <svg class="icon icon-medium"><use xlink:href="#icon-medium"></use></svg>
       </a>
       <a href="http://book.douban.com/people/ruvidocollie/collect" title="Book">
         <svg class="icon icon-book"><use xlink:href="#icon-book"></use></svg>
-      </a>
-      <a href="http://weibo.com/ruvidocollie" title="Weibo">
-        <svg class="icon icon-sina-weibo"><use xlink:href="#icon-sina-weibo"></use></svg>
-      </a>
-      <a href="https://github.com/xtongs" title="Github">
-        <svg class="icon icon-github"><use xlink:href="#icon-github"></use></svg>
-      </a>
-      <a href="mailto:xiaotong.shen@hotmail.com" title="Mail">
-        <svg class="icon icon-envelope-o"><use xlink:href="#icon-envelope-o"></use></svg>
       </a>
     </div>
     <div class="section">
@@ -281,6 +277,11 @@
       <a href="./workspace/horoscope/" title="星座运势"><img src="./workspace/horoscope/cover.jpg" /></a>
       <a href="./workspace/pokemon/" title="Pokemon"><img src="./workspace/pokemon/cover.jpg" /></a>
       <a href="./workspace/svg/" title="SVG Path Builder"><img src="./workspace/svg/cover.jpg" /></a>
+    </div>
+    <div class="section">
+      <a href="//xtongs.github.io/vue-recyclist/">Vue Recyclist</a>
+      <a href="//xtongs.github.io/cssloading/">Pure CSS Loading Spiner</a>
+      <a href="//xtongs.github.io/gfeeds/">GraphQL Feeds on Reddit</a>
     </div>
     <div class="footer">
       <h5>@ruvidoc</h5>
