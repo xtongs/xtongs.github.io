@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            display: block;
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <a href="javascript:;">window.location.href = </a>
+        <a href="javascript:;">document.location.href = </a>
+        <a href="javascript:;">document.location = </a>
+        <a href="javascript:;">window.location = </a>
+    </div>
+    <script>
+        var url = 'https://www.baidu.com';
+        document.getElementById('root').addEventListener('click', function (e) {
+            eval(e.target.innerText + `'${url}'`);
+        });
+    </script>
+</body>
+</html>
